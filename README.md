@@ -33,7 +33,7 @@ point, but
 there are no doubt zillions of good
 resources out there we've never heard of so feel free to share
 things you find helpful.
-
+ 
 [CProgramming.com has a decent
 on-line C tutorial](<http://www.cprogramming.com/tutorial.html#ctutorial>), complete with little self-tests along the way. _I would **strongly**
 recommend trying out the self-tests as a basic way of checking your
