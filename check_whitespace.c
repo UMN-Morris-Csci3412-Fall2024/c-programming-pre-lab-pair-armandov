@@ -25,10 +25,12 @@ char const *strip(char const *str) {
   }
 
   // If num_spaces >= size then that means that the string
-  // consisted of nothing but spaces, so we'll return the
-  // empty string.
+  // consisted of nothing but spaces, so we'll return an
+  // empty dynamically allocated string.
   if (num_spaces >= size) {
-    return "";
+    char* result = (char*) calloc(1, sizeof(char));
+    result[0] = '\0';
+    return result;
   }
 
   // Allocate a slot for all the "saved" characters
@@ -59,7 +61,9 @@ int is_clean(char const *str) {
   // the first is less than the second (in alphabetical order),
   // 0 if they're equal, and a positive value if the first is
   // greater than the second.
-  int result = strcmp(str, cleaned);
+  int result = strcmp(str, cleaned) == 0;
 
-  return result == 0;
+  free((void*) cleaned);
+
+  return result;
 }
