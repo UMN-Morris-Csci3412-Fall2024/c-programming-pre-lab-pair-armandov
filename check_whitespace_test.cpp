@@ -1,36 +1,25 @@
 #include <gtest/gtest.h>
+
 #include "check_whitespace.h"
 
-
-
 TEST(strip, EmptyString) {
-    const char *result = strip("");
-    ASSERT_STREQ("", result);
-    free((void *)result); 
+    ASSERT_STREQ("", strip(""));
 }
 
 TEST(strip, NoWhitespace) {
-    const char *result = strip("frog");
-    ASSERT_STREQ("frog", result);
-    free((void *)result); 
+    ASSERT_STREQ("frog", strip("frog"));
 }
 
 TEST(strip, WhitespaceOnFront) {
-    const char *result = strip("   frog");
-    ASSERT_STREQ("frog", result);
-    free((void *)result); 
+    ASSERT_STREQ("frog", strip("   frog"));
 }
 
 TEST(strip, WhitespaceOnBack) {
-    const char *result = strip("frog  ");
-    ASSERT_STREQ("frog", result);
-    free((void *)result); 
+    ASSERT_STREQ("frog", strip("frog  "));
 }
 
 TEST(strip, WhitespaceOnBothEnds) {
-    const char *result = strip("  frog     ");
-    ASSERT_STREQ("frog", result);
-    free((void *)result); 
+    ASSERT_STREQ("frog", strip("  frog     "));
 }
 
 TEST(is_clean, EmptyString) {
@@ -54,6 +43,6 @@ TEST(is_clean, WhitespaceOnBothEnds) {
 }
 
 int main(int argc, char *argv[]) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }
